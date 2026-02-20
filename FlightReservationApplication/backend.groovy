@@ -16,7 +16,7 @@ pipeline{
         }
         stage('QA-Test'){
             steps{
-                withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar-token') {
+                withSonarQubeEnv(installationName: 'sonar-test', credentialsId: 'sonar-tokan') {
                   sh'''
                      cd FlightReservationApplication
                      mvn clean verify sonar:sonar -Dsonar.projectKey=flight-reservation   
