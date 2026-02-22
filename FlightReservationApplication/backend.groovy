@@ -16,7 +16,7 @@ pipeline{
         }
         stage('QA-Test'){
             steps{
-                withSonarQubeEnv(installationName: 'sonar-test', credentialsId: 'sonar-tokan') {
+                withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar-token') {
                   sh'''
                      cd FlightReservationApplication
                      mvn clean verify sonar:sonar -Dsonar.projectKey=flight-reservation   
@@ -28,9 +28,9 @@ pipeline{
             steps{
                 sh'''
                     cd FlightReservationApplication
-                    docker build -t divatee/flight-reservation-2:latest . 
-                    docker push divatee/flight-reservation-2:latest
-                    docker rmi divatee/flight-reservation-2:latest
+                    docker build -t divatee/flight-reservation-3:latest . 
+                    docker push divatee/flight-reservation-3:latest
+                    docker rmi divatee/flight-reservation-3:latest
                 '''
             }
         }
