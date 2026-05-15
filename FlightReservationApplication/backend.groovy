@@ -28,9 +28,9 @@ pipeline{
             steps{
                 sh'''
                     cd FlightReservationApplication
-                    docker build -t divatee/flight-reservation-3:latest . 
-                    docker push divatee/flight-reservation-3:latest
-                    docker rmi divatee/flight-reservation-3:latest
+                    docker build -t divatee/flight-reservation-4:latest . 
+                    docker push divatee/flight-reservation-4:latest
+                    docker rmi divatee/flight-reservation-4:latest
                 '''
             }
         }
