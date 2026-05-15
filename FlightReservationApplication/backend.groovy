@@ -16,10 +16,14 @@ pipeline{
         }
         stage('QA-Test'){
             steps{
-                withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar-token') {
+                withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar_token') {
                   sh'''
                      cd FlightReservationApplication
-                     mvn clean verify sonar:sonar -Dsonar.projectKey='Flight reservation'  
+                     mvn clean verify sonar:sonar \
+                     -Dsonar.projectKey=flight-reservation \
+                     -Dsonar.projectName='flight-reservation' \
+                     -Dsonar.host.url=http://13.48.59.45:9000 \
+                     -Dsonar.token=sqp_f93675ff50fff0f6d20ce68c77606324b7ecac79 
                   ''' 
                 }
             }
